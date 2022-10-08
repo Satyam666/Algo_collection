@@ -2,7 +2,9 @@
 // is present then return its location, otherwise
 // return -1
 
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int search(int arr[], int N, int x)
 {
@@ -14,16 +16,24 @@ int search(int arr[], int N, int x)
 }
 
 // Driver's code
-int main(void)
+int main()
 {
-	int arr[] = { 2, 3, 4, 10, 40 };
-	int x = 10;
-	int N = sizeof(arr) / sizeof(arr[0]);
+	int n, x;
+	cout << "Enter the size of the Array: ";
+	cin >> n;
+	int arr[n];
+
+	for(int i = 0; i < n; i++){
+		cin >> arr[i];
+	}
+
+	cout << "Enter the number you wanted to search for: ";
+	cin >> x;
 
 	// Function call
-	int result = search(arr, N, x);
+	int result = search(arr, n, x);
 	(result == -1)
 		? printf("Element is not present in array")
-		: printf("Element is present at index %d", result);
+		: printf("Element is present at index %d", result + 1);
 	return 0;
 }
